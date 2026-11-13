@@ -1,0 +1,87 @@
+[
+  {
+    "caption": "Markdown Formatting",
+    "command": "md_format_menu",
+    "children": [
+      {
+        "caption": "Headings",
+        "command": "md_format_menu",
+        "args": {"group": "Headings"},
+        "children": [
+          {"command": "md_format", "args": {"action": "heading_1", "context": true}},
+          {"command": "md_format", "args": {"action": "heading_2", "context": true}},
+          {"command": "md_format", "args": {"action": "heading_3", "context": true}},
+          {"command": "md_format", "args": {"action": "heading_4", "context": true}},
+          {"command": "md_format", "args": {"action": "heading_5", "context": true}},
+          {"command": "md_format", "args": {"action": "heading_6", "context": true}}
+        ]
+      },
+      {"caption": "-"},
+      {"command": "md_format", "args": {"action": "bold", "context": true}},
+      {"command": "md_format", "args": {"action": "italic", "context": true}},
+      {"command": "md_format", "args": {"action": "bold_italic", "context": true}},
+      {"command": "md_format", "args": {"action": "strikethrough", "context": true}},
+      {"command": "md_format", "args": {"action": "inline_code", "context": true}},
+      {"caption": "-"},
+      {
+        "caption": "Lists",
+        "command": "md_format_menu",
+        "args": {"group": "Lists"},
+        "children": [
+          {"command": "md_format", "args": {"action": "unordered_list", "context": true}},
+          {"command": "md_format", "args": {"action": "ordered_list", "context": true}},
+          {"command": "md_format", "args": {"action": "task_list", "context": true}},
+          {"command": "md_format", "args": {"action": "toggle_task", "context": true}}
+        ]
+      },
+      {
+        "caption": "Insert",
+        "command": "md_format_menu",
+        "args": {"group": "Insert"},
+        "children": [
+          {"command": "md_format", "args": {"action": "fenced_code", "context": true}},
+          {"command": "md_format", "args": {"action": "link", "context": true}},
+          {"command": "md_format", "args": {"action": "image", "context": true}},
+          {"command": "md_format", "args": {"action": "blockquote", "context": true}},
+          {"command": "md_format", "args": {"action": "horizontal_rule", "context": true}},
+          {"command": "md_format", "args": {"action": "table", "context": true}},
+          {"command": "md_format", "args": {"action": "html_comment", "context": true}},
+          {"command": "md_format", "args": {"action": "insertion", "context": true}},
+          {"command": "md_format", "args": {"action": "footnote", "context": true}},
+          {"caption": "-"},
+          {
+            "caption": "Custom Formats…",
+            "command": "md_format_picker",
+            "args": {"custom_only": true, "context": true}
+          }
+        ]
+      },
+      {
+        "caption": "Review",
+        "command": "md_format_menu",
+        "args": {"group": "Review"},
+        "children": [
+          {"command": "md_format", "args": {"action": "critic_addition", "context": true}},
+          {"command": "md_format", "args": {"action": "critic_deletion", "context": true}},
+          {"command": "md_format", "args": {"action": "critic_substitution", "context": true}},
+          {"command": "md_format", "args": {"action": "critic_highlight", "context": true}},
+          {"command": "md_format", "args": {"action": "critic_comment", "context": true}}
+        ]
+      },
+      {"caption": "-"},
+      {
+        "caption": "Search Formats…",
+        "command": "md_format_picker",
+        "args": {"mode": "search", "context": true}
+      },
+      {
+        "caption": "Styled Picker…",
+        "command": "md_format_picker",
+        "args": {"mode": "styled", "context": true}
+      },
+      {"caption": "Repeat Last Format", "command": "md_format_repeat", "args": {"context": true}},
+      {"command": "md_format_profile", "args": {"context": true}},
+      {"caption": "Settings…", "command": "md_format_settings"}
+    ]
+  }
+]

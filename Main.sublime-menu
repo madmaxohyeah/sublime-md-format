@@ -1,0 +1,23 @@
+[
+  {
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "mnemonic": "P",
+        "children": [
+          {
+            "caption": "Markdown Formatting",
+            "children": [
+              {
+                "caption": "Settings",
+                "command": "md_format_settings"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

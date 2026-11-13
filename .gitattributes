@@ -1,0 +1,23 @@
+* text=auto eol=lf
+*.sublime-package -text
+*.png -text
+
+# Package Control installs the GitHub archive of each version tag. Keep that
+# archive identical to the built .sublime-package: everything that is not a
+# package file is left out (checked by scripts/check.py).
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.github export-ignore
+/.github/** export-ignore
+/dist export-ignore
+/dist/** export-ignore
+/tests export-ignore
+/tests/** export-ignore
+/scripts export-ignore
+/scripts/** export-ignore
+/pyproject.toml export-ignore
+/docs/** export-ignore
+
+# The two user guides linked from the README ship with the package.
+/docs/configuration.md -export-ignore
+/docs/compatibility.md -export-ignore

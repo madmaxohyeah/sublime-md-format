@@ -1,0 +1,31 @@
+{
+  "_documentation": {
+    "profile": "gfm, commonmark, or multimarkdown. GFM is the default.",
+    "markdown_only": "Hide and block formatting commands outside Markdown scopes.",
+    "show_in_context_menu": "Show the Markdown Formatting submenu in the right-click menu wherever formatting is available (see markdown_only). false hides its entries; Windows and macOS still draw the heading with Settings… inside. Pickers, palette and key bindings are unaffected.",
+    "hidden_actions": "Action IDs to hide from menus and pickers.",
+    "labels": "Per-action display labels used by native menus and pickers.",
+    "picker_order": "Action IDs to place first in the styled and searchable pickers.",
+    "styled_picker": "Examples use the active Markdown syntax and color scheme automatically, including live appearance changes. No styles configuration is needed.",
+    "custom_formats": "Safe text wrappers with label, prefix, suffix, and placeholder. The label is example text; placeholder controls insertion at an empty caret. Only \\n and \\t are allowed as control characters.",
+    "enable_critic_markup": "Expose CriticMarkup actions for any profile (enabled by default).",
+    "select_word_on_empty": "Format the word under an empty caret when possible.",
+    "markers": "bullet_marker is -, *, or +; emphasis_marker is * or _; strong_marker is ** or __.",
+    "fence_language": "Optional default language placed after an opening code fence.",
+    "link_url": "Default destination for inserted Markdown links and images. \"\" inserts an empty destination."
+  },
+  "profile": "gfm",
+  "markdown_only": true,
+  "show_in_context_menu": true,
+  "hidden_actions": [],
+  "labels": {},
+  "picker_order": [],
+  "custom_formats": [],
+  "enable_critic_markup": true,
+  "select_word_on_empty": true,
+  "bullet_marker": "-",
+  "emphasis_marker": "*",
+  "strong_marker": "**",
+  "fence_language": "",
+  "link_url": "https://example.com"
+}

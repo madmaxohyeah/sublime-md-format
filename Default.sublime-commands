@@ -1,0 +1,24 @@
+[
+  {
+    "caption": "Markdown Formatting: Search Formats",
+    "command": "md_format_picker",
+    "args": {"mode": "search"}
+  },
+  {
+    "caption": "Markdown Formatting: Styled Picker",
+    "command": "md_format_picker",
+    "args": {"mode": "styled"}
+  },
+  {
+    "caption": "Markdown Formatting: Settings",
+    "command": "md_format_settings"
+  },
+  {
+    "caption": "Markdown Formatting: Select Profile",
+    "command": "md_format_profile"
+  },
+  {
+    "caption": "Markdown Formatting: Repeat Last Format",
+    "command": "md_format_repeat"
+  }
+]
