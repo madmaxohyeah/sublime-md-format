@@ -169,9 +169,7 @@ Sublime's native menu API has captions and groups but no per-item foreground,
 font or CSS control. The Styled Picker is the intentionally small alternative
 when visual emphasis is useful. This package never edits your color scheme.
 
-Advanced users may add their own `Packages/User/Context.sublime-menu` entries
-using `md_format` and the IDs above. To move an item rather than duplicate it,
-you can override this package's resource at
-`Packages/MarkdownFormatting/Context.sublime-menu`; keep that override in sync
-with future releases, and remove it when uninstalling. Normal customization
-should use settings and does not require resource overrides.
+You can add your own entries in `Packages/User/Context.sublime-menu` using
+`md_format` and the IDs above. To remove or rearrange this package's submenu,
+replace its menu file as described under "Right-click menu" in the README.
+For everything else, the settings above are enough.

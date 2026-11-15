@@ -1,3 +1,4 @@
+import ast
 import json
 import unittest
 from collections import Counter
@@ -516,7 +517,7 @@ class ActionCatalogTests(unittest.TestCase):
             [
                 "md_format_picker",
                 "md_format_picker",
-                "md_format_settings",
+                "edit_settings",
                 "md_format_profile",
                 "md_format_repeat",
             ],
@@ -525,8 +526,9 @@ class ActionCatalogTests(unittest.TestCase):
         self.assertEqual(commands[1]["args"], {"mode": "styled"})
         # The context-menu opt-out must never hide Command Palette entries.
         self.assertFalse(any("context" in item.get("args", {}) for item in commands))
-        self.assertTrue(
-            all(item["caption"].startswith("Markdown Formatting:") for item in commands)
+        self.assertEqual(
+            [item["caption"].split(":")[0] for item in commands],
+            ["Markdown Formatting"] * 2 + ["Preferences"] + ["Markdown Formatting"] * 2,
         )
 
     def test_every_context_leaf_but_settings_is_marked_as_a_context_entry(self):
@@ -584,13 +586,26 @@ class ActionCatalogTests(unittest.TestCase):
         self.assertEqual(profile_name("commonmark"), "CommonMark")
         self.assertEqual(profile_name("multimarkdown"), "MultiMarkdown")
 
-    def test_main_menu_exposes_plugin_owned_settings_command(self):
+    def test_main_menu_and_palette_open_settings_like_the_settings_command(self):
+        """Package Control's reviewer looks for edit_settings in both places."""
+        source = (ROOT / "markdown_formatting.py").read_text(encoding="utf-8")
+        template = next(
+            ast.literal_eval(node.value) for node in ast.parse(source).body
+            if isinstance(node, ast.Assign)
+            and [getattr(target, "id", None) for target in node.targets] == ["USER_SETTINGS_TEMPLATE"]
+        )
+        expected = {
+            "base_file": "${packages}/MarkdownFormatting/MarkdownFormatting.sublime-settings",
+            "default": template,
+        }
         menu = load_json("Main.sublime-menu")
         nodes = list(walk_menu(menu))
-        settings_items = [
-            item for item in nodes if item.get("command") == "md_format_settings"
-        ]
-        self.assertEqual(settings_items, [{"caption": "Settings", "command": "md_format_settings"}])
+        settings_items = [item for item in nodes if item.get("command") == "edit_settings"]
+        self.assertEqual(settings_items, [{"caption": "Settings", "command": "edit_settings", "args": expected}])
+        palette = [item for item in load_json("Default.sublime-commands") if item["command"] == "edit_settings"]
+        self.assertEqual(palette, [{
+            "caption": "Preferences: Markdown Formatting Settings", "command": "edit_settings", "args": expected,
+        }])
         captions = [item.get("caption") for item in nodes]
         self.assertIn("Package Settings", captions)
         self.assertIn("Markdown Formatting", captions)

@@ -13,7 +13,7 @@
 
 Every context menu entry passes `"context": true`. The commands accept a `context` argument, and when it is true they are also hidden if `show_in_context_menu` is false. The Command Palette, key bindings, pickers and Repeat Last Format never pass it, so turning off the context menu doesn't affect them. `context` only decides where an entry shows up; `run` always re-checks whether the action is available.
 
-Submenus use the `md_format_menu` command for their visibility. Linux respects it; Windows and macOS always draw submenu headings. That's why the root submenu always contains **Settings…** and is never empty. `md_format_settings` is a WindowCommand, so Settings also opens from the main menu and the Command Palette when no file is open.
+Submenus use the `md_format_menu` command for their visibility. Linux respects it; Windows and macOS always draw submenu headings. That's why the root submenu always contains **Settings…** and is never empty. The main menu and the Command Palette open Settings with Sublime's `edit_settings`. The context menu and the Styled Picker use `md_format_settings`, a WindowCommand that runs the same `edit_settings` call.
 
 Settings are layered: package settings, then the project's `markdown_formatting` object, then a `markdown_formatting` object found through the view's settings, then the profile chosen for the view (`markdown_formatting_profile`).
 

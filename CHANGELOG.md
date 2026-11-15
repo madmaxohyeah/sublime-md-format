@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1 — 2026-11-15
+
+- The README explains how to remove or customize the right-click menu by
+  replacing the package's `Context.sublime-menu`.
+- The Command Palette entry for the settings is now called **Preferences:
+  Markdown Formatting Settings**, like in most packages. It and the main menu
+  entry now use Sublime's standard `edit_settings` command.
+
 ## 1.0.0 — 2026-11-13
 
 First public release.

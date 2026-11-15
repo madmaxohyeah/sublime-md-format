@@ -53,7 +53,7 @@ This is a source-editing helper, not a full Markdown parser or renderer.
 ## Choose your menu
 
 Open **Preferences → Package Settings → Markdown Formatting → Settings**
-or run **Markdown Formatting: Settings** from the command palette.
+or run **Preferences: Markdown Formatting Settings** from the Command Palette.
 
 ```json
 {
@@ -101,12 +101,34 @@ project overrides and custom formats: [configuration guide](docs/configuration.m
   **Settings…** inside); all actions stay available from the pickers, the
   Command Palette and your key bindings. Settings are always under
   **Preferences → Package Settings → Markdown Formatting**, even with no file open.
+- To remove the right-click menu completely, see
+  [Right-click menu](#right-click-menu) below.
 - Commands re-check profile, visibility, read-only state and custom templates
   when executed. Stale picker selections do not edit a changed document.
 - Uses only Sublime's API and Python's standard library: no telemetry, network
   access, external programs or extra dependencies.
 - Native menu limits and Markdown flavor differences:
   [compatibility](docs/compatibility.md).
+
+## Right-click menu
+
+The **Markdown Formatting** submenu only shows formatting actions in Markdown
+files, and `show_in_context_menu: false` removes them everywhere. Sublime Text
+on Windows and macOS still draws the submenu heading, with **Settings…**
+inside, because it can't hide submenu headings there.
+
+To remove the submenu completely, or to keep only the actions you use, replace
+the package's menu file with your own:
+
+1. Choose **Preferences → Browse Packages…** and create a folder named
+   `MarkdownFormatting` there.
+2. In that folder, create a file named `Context.sublime-menu`.
+3. To remove the submenu, put `[]` in the file. To customize it, copy the
+   [original menu](https://github.com/madmaxohyeah/sublime-md-format/blob/main/Context.sublime-menu)
+   into the file and delete the entries you don't want.
+
+Your file replaces the package's menu until you delete it. After an update,
+compare it with the original menu if you want new actions.
 
 ## Development
 

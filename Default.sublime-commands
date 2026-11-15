@@ -10,8 +10,9 @@
     "args": {"mode": "styled"}
   },
   {
-    "caption": "Markdown Formatting: Settings",
-    "command": "md_format_settings"
+    "caption": "Preferences: Markdown Formatting Settings",
+    "command": "edit_settings",
+    "args": {"base_file": "${packages}/MarkdownFormatting/MarkdownFormatting.sublime-settings", "default": "// Markdown Formatting user settings: copy only the options you want to\n// change from the left pane. Everything else keeps its default.\n{\n\t$0\n}\n"}
   },
   {
     "caption": "Markdown Formatting: Select Profile",

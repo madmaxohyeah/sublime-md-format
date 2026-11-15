@@ -573,7 +573,7 @@ class AdapterTests(unittest.TestCase):
             self.assertEqual(PLUGIN.MdFormatProfileCommand(self.view).description(),
                              'Markdown profile: GitHub Flavored Markdown…')
 
-    # S3: unexpected engine failures must not reach the console as tracebacks.
+    # Unexpected engine failures must not reach the console as tracebacks.
     def test_unexpected_engine_failure_leaves_buffer_untouched(self):
         for error in (RuntimeError('edit plan does not reconstruct formatted text'),
                       KeyError('secret document text')):
@@ -591,7 +591,7 @@ class AdapterTests(unittest.TestCase):
             self.assertNotIn('hello', message)
             self.assertNotIn(PLUGIN.LAST_ACTION_KEY, self.view.config)
 
-    # S1: Settings must work without an open file.
+    # Settings must work without an open file.
     def test_settings_command_is_a_window_command_without_frozen_defaults(self):
         self.assertTrue(issubclass(PLUGIN.MdFormatSettingsCommand, SUBLIME_PLUGIN.WindowCommand))
         self.assertFalse(issubclass(PLUGIN.MdFormatSettingsCommand, TextCommand))

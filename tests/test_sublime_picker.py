@@ -206,7 +206,7 @@ class ThemePickerTests(unittest.TestCase):
         self.view.update_popup.assert_not_called()
 
 
-    # S4: unrelated view settings (git gutter, LSP, repeat state...) must not
+    # Unrelated view settings (git gutter, LSP, repeat state...) must not
     # recreate preview panels while the picker is open.
     def test_unrelated_setting_changes_do_not_rerender(self):
         self.view.config.set('color_scheme', 'Dark')
@@ -233,7 +233,7 @@ class ThemePickerTests(unittest.TestCase):
         PLUGIN.sublime_picker.refresh_all()
         self.view.update_popup.assert_called_once()
 
-    # S3: a failing plain fallback must not leave a registered, unclosed
+    # A failing plain fallback must not leave a registered, unclosed
     # session behind, which would later hide another plugin's popup.
     def test_failed_plain_fallback_unregisters_session_and_spares_other_popups(self):
         def broken_panel(name, unlisted=False):
