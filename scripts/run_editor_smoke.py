@@ -36,7 +36,7 @@ def main():
     user = data / 'Packages/User'
     installed.mkdir()
     user.mkdir(parents=True)
-    shutil.copy2(ROOT / 'dist/MarkdownFormatting.sublime-package', installed)
+    shutil.copy2(ROOT / 'dist/Markdown Formatting.sublime-package', installed)
     shutil.copy2(ROOT / 'scripts/runtime_driver.py', user)
     (user / 'Preferences.sublime-settings').write_text(json.dumps({
         'update_check': False, 'hot_exit': False, 'remember_open_files': False,

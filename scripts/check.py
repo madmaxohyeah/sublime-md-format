@@ -47,7 +47,7 @@ def main():
             ast.parse(path.read_text(encoding='utf-8'), filename=str(path), feature_version=(3, 8))
     ast.parse((ROOT / 'markdown_formatting.py').read_text(encoding='utf-8'), feature_version=(3, 8))
     with tempfile.TemporaryDirectory() as directory:
-        target = Path(directory) / 'MarkdownFormatting.sublime-package'
+        target = Path(directory) / 'Markdown Formatting.sublime-package'
         digest = build(target)
         shipped = ROOT / 'dist' / target.name
         if target.read_bytes() != shipped.read_bytes():

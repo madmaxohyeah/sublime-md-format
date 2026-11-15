@@ -4,6 +4,7 @@ Never included in the release archive. Uses real Sublime APIs, not API fakes.
 Set MD_FORMAT_EVIDENCE to the output directory before launching the editor.
 """
 import hashlib
+import importlib
 from html.parser import HTMLParser
 import json
 import os
@@ -25,8 +26,9 @@ def write_json(name, data):
 
 class MarkdownFormattingSmokeCommand(sublime_plugin.WindowCommand):
     def run(self):
-        from MarkdownFormatting import markdown_formatting as plugin
-        from MarkdownFormatting.mdformat.catalog import ACTIONS, available_actions
+        plugin = importlib.import_module("Markdown Formatting.markdown_formatting")
+        catalog = importlib.import_module("Markdown Formatting.mdformat.catalog")
+        ACTIONS, available_actions = catalog.ACTIONS, catalog.available_actions
 
         results = []
         views = []
@@ -136,7 +138,7 @@ class MarkdownFormattingSmokeCommand(sublime_plugin.WindowCommand):
                 view.run_command("md_format_repeat")
                 assert view.substr(sublime.Region(0, view.size())) == "middle"
                 results.append({"name": "overlapping custom repeat " + prefix + "/" + suffix, "passed": True})
-            global_settings = sublime.load_settings("MarkdownFormatting.sublime-settings")
+            global_settings = sublime.load_settings("Markdown Formatting.sublime-settings")
             keys = ("profile", "hidden_actions", "styles")
             saved = {key: global_settings.get(key) for key in keys}
             saved_project = self.window.project_data()
@@ -165,9 +167,9 @@ class MarkdownFormattingSmokeCommand(sublime_plugin.WindowCommand):
                         global_settings.erase(key)
                     else:
                         global_settings.set(key, value)
-            archive = Path(sublime.installed_packages_path()) / "MarkdownFormatting.sublime-package"
+            archive = Path(sublime.installed_packages_path()) / "Markdown Formatting.sublime-package"
             assert archive.is_file(), "Must test installed archive, not source checkout"
-            assert not (Path(sublime.packages_path()) / "MarkdownFormatting").exists(), "Unpacked package masks archive"
+            assert not (Path(sublime.packages_path()) / "Markdown Formatting").exists(), "Unpacked package masks archive"
             report = {"passed": True, "build": sublime.version(), "python": sys.version,
                       "platform": sublime.platform(), "module": plugin.__file__,
                       "archive_sha256": hashlib.sha256(archive.read_bytes()).hexdigest(), "cases": results}
@@ -232,8 +234,7 @@ class PickerRuntimeChecks:
     LIGHT = "Packages/Color Scheme - Default/Celeste.sublime-color-scheme"
 
     def __init__(self, view, report):
-        from MarkdownFormatting import markdown_formatting as plugin
-        self.plugin = plugin
+        self.plugin = importlib.import_module("Markdown Formatting.markdown_formatting")
         self.view = view
         self.report = report
         self.prefs = sublime.load_settings("Preferences.sublime-settings")

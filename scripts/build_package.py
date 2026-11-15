@@ -10,7 +10,7 @@ PACKAGE_FILES = (
     'mdformat/__init__.py', 'mdformat/catalog.py', 'mdformat/engine.py', 'mdformat/picker.py',
     'mdformat/sublime_picker.py',
     'Context.sublime-menu', 'Main.sublime-menu', 'Default.sublime-commands',
-    'MarkdownFormatting.sublime-settings', 'README.md', 'LICENSE', 'CHANGELOG.md',
+    'Markdown Formatting.sublime-settings', 'README.md', 'LICENSE', 'CHANGELOG.md',
     'docs/configuration.md', 'docs/compatibility.md',
 )
 
@@ -31,7 +31,7 @@ def build(destination):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=ROOT / 'dist/MarkdownFormatting.sublime-package')
+    parser.add_argument('--output', type=Path, default=ROOT / 'dist/Markdown Formatting.sublime-package')
     args = parser.parse_args()
     digest = build(args.output)
     checksum = args.output.with_suffix(args.output.suffix + '.sha256')

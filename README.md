@@ -8,11 +8,11 @@ Requires **Sublime Text 4** and is tested with build 4215.
 ## Install
 
 **Package Control:** open the Command Palette, run **Package Control: Install
-Package** and choose **MarkdownFormatting**. Updates install automatically.
+Package** and choose **Markdown Formatting**. Updates install automatically.
 
 **Manually:**
 
-1. Download `MarkdownFormatting.sublime-package` from the package website or
+1. Download `Markdown Formatting.sublime-package` from the package website or
    this repository's `dist/` directory. Keep that exact filename.
 2. In Sublime Text, choose **Preferences → Browse Packages…**.
 3. Go up one directory and open **Installed Packages**. Create it if absent.
@@ -27,7 +27,7 @@ installations and is the preferred way to locate the right data directory.
 
 Update a manual install by replacing that same archive and restarting.
 Uninstall by removing it (or with **Package Control: Remove Package**);
-optionally remove `Packages/User/MarkdownFormatting.sublime-settings`. No
+optionally remove `Packages/User/Markdown Formatting.sublime-settings`. No
 generated menus or extra packages are left behind.
 
 ## Everyday formatting
@@ -121,7 +121,7 @@ To remove the submenu completely, or to keep only the actions you use, replace
 the package's menu file with your own:
 
 1. Choose **Preferences → Browse Packages…** and create a folder named
-   `MarkdownFormatting` there.
+   `Markdown Formatting` there.
 2. In that folder, create a file named `Context.sublime-menu`.
 3. To remove the submenu, put `[]` in the file. To customize it, copy the
    [original menu](https://github.com/madmaxohyeah/sublime-md-format/blob/main/Context.sublime-menu)
@@ -137,7 +137,7 @@ python3 scripts/build_package.py
 python3 scripts/check.py
 ```
 
-`build_package.py` writes `dist/MarkdownFormatting.sublime-package`; `check.py`
+`build_package.py` writes `dist/Markdown Formatting.sublime-package`; `check.py`
 runs the tests and fails if that file is out of date. See
 [development](docs/development.md) and [architecture](docs/architecture.md).
 

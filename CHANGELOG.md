@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 — 2026-11-15
+
+- The package is now called **Markdown Formatting**, with a space, everywhere:
+  in Package Control, in the archive name `Markdown Formatting.sublime-package`
+  and in the settings file `Markdown Formatting.sublime-settings`.
+
 ## 1.0.1 — 2026-11-15
 
 - The README explains how to remove or customize the right-click menu by

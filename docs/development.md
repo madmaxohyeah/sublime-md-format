@@ -10,7 +10,7 @@ python3 scripts/build_package.py
 python3 scripts/check.py
 ```
 
-`build_package.py` writes `dist/MarkdownFormatting.sublime-package` and its checksum from the file list in `PACKAGE_FILES`. The archive is reproducible: entries are sorted and stored uncompressed, with fixed timestamps and modes, so the same source always gives the same bytes.
+`build_package.py` writes `dist/Markdown Formatting.sublime-package` and its checksum from the file list in `PACKAGE_FILES`. The archive is reproducible: entries are sorted and stored uncompressed, with fixed timestamps and modes, so the same source always gives the same bytes.
 
 `check.py` runs the unit tests, checks that the Python files parse as Python 3.8, compares `dist/` with a fresh build, and checks that the release archive (see below) contains exactly `PACKAGE_FILES`. CI also runs `ruff check .` (Ruff 0.16.9).
 

@@ -191,10 +191,10 @@ SUBLIME_PLUGIN.WindowCommand = WindowCommand
 SUBLIME_PLUGIN.EventListener = object
 sys.modules['sublime'] = SUBLIME
 sys.modules['sublime_plugin'] = SUBLIME_PLUGIN
-package = types.ModuleType('MarkdownFormatting')
+package = types.ModuleType('Markdown Formatting')
 package.__path__ = [str(Path(__file__).resolve().parents[1])]
-sys.modules['MarkdownFormatting'] = package
-PLUGIN = importlib.import_module('MarkdownFormatting.markdown_formatting')
+sys.modules['Markdown Formatting'] = package
+PLUGIN = importlib.import_module('Markdown Formatting.markdown_formatting')
 
 
 class AdapterTests(unittest.TestCase):
@@ -486,7 +486,7 @@ class AdapterTests(unittest.TestCase):
         PLUGIN.MdFormatSettingsCommand(self.view.win).run()
         name, args = self.view.win.run_command.call_args.args
         self.assertEqual(name, 'edit_settings')
-        self.assertEqual(args['base_file'], '${packages}/MarkdownFormatting/MarkdownFormatting.sublime-settings')
+        self.assertEqual(args['base_file'], '${packages}/Markdown Formatting/Markdown Formatting.sublime-settings')
 
     # The context-menu opt-out must hide leaves too, because Windows and
     # macOS show submenu headings regardless of their is_visible callbacks.
@@ -621,7 +621,8 @@ class AdapterTests(unittest.TestCase):
         self.view.run_command.assert_called_once_with('md_format', {'action': 'bold'})
 
     def test_profile_names_have_a_single_source(self):
-        from MarkdownFormatting.mdformat import catalog, picker
+        catalog = importlib.import_module('Markdown Formatting.mdformat.catalog')
+        picker = importlib.import_module('Markdown Formatting.mdformat.picker')
         self.assertIs(getattr(PLUGIN, 'PROFILE_NAMES', catalog.PROFILE_NAMES), catalog.PROFILE_NAMES)
         self.assertFalse(hasattr(picker, '_PROFILE_LABELS'))
         self.assertEqual(tuple(catalog.PROFILE_NAMES), catalog.PROFILES)

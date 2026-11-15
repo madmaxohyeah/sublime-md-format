@@ -459,7 +459,7 @@ class ActionCatalogTests(unittest.TestCase):
             self.assertEqual(set(item), {"label", "prefix", "suffix", "placeholder"})
 
     def test_default_settings_resource_is_strict_json_and_resolves(self):
-        raw = load_json("MarkdownFormatting.sublime-settings")
+        raw = load_json("Markdown Formatting.sublime-settings")
         settings = resolve_settings(raw)
 
         self.assertEqual(settings["profile"], "gfm")
@@ -595,7 +595,7 @@ class ActionCatalogTests(unittest.TestCase):
             and [getattr(target, "id", None) for target in node.targets] == ["USER_SETTINGS_TEMPLATE"]
         )
         expected = {
-            "base_file": "${packages}/MarkdownFormatting/MarkdownFormatting.sublime-settings",
+            "base_file": "${packages}/Markdown Formatting/Markdown Formatting.sublime-settings",
             "default": template,
         }
         menu = load_json("Main.sublime-menu")

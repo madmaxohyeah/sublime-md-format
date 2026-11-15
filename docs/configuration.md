@@ -118,7 +118,7 @@ Place this in a `.sublime-project` file, merging it into existing settings:
 
 Precedence, lowest to highest:
 
-1. package settings (`MarkdownFormatting.sublime-settings`, default and user);
+1. package settings (`Markdown Formatting.sublime-settings`, default and user);
 2. the project's `settings.markdown_formatting` object;
 3. a `markdown_formatting` object found through the view's own settings. Sublime
    resolves that key per view, so it is the highest of: a value set on the view

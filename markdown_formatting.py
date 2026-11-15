@@ -26,7 +26,7 @@ from .mdformat.engine import format_document
 from .mdformat.picker import render_picker
 from .mdformat import sublime_picker
 
-SETTINGS_FILE = "MarkdownFormatting.sublime-settings"
+SETTINGS_FILE = "Markdown Formatting.sublime-settings"
 LAST_ACTION_KEY = "markdown_formatting_last_action"
 # The per-view profile choice is stored on its own so that the merged settings
 # dictionary is never written back into (and frozen in) the view.
